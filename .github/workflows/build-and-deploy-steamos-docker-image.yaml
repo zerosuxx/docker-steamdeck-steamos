@@ -24,7 +24,7 @@ jobs:
       - name: Download recovery image
         run: wget https://steamdeck-images.steamos.cloud/recovery/${{ env.RECOVERY_IMAGE }}.bz2
 
-      - name: Extract recovety image
+      - name: Extract recovery image
         run: |
           bzip2 -d ${{ env.RECOVERY_IMAGE }}.bz2
           rm ${{ env.RECOVERY_IMAGE }}.bz2
