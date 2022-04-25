@@ -25,9 +25,7 @@ jobs:
         run: wget https://steamdeck-images.steamos.cloud/recovery/${{ env.RECOVERY_IMAGE }}.bz2
 
       - name: Extract recovery image
-        run: |
-          bzip2 -d ${{ env.RECOVERY_IMAGE }}.bz2
-          rm ${{ env.RECOVERY_IMAGE }}.bz2
+        run: bzip2 -d ${{ env.RECOVERY_IMAGE }}.bz2
 
       - name: Build docker image from recovery image
         run: |
