@@ -26,7 +26,7 @@ jobs:
 
       - name: Extract recovety image
         run: |
-          tar -xvf ${{ env.RECOVERY_IMAGE }}.bz2
+          bzip2 -d ${{ env.RECOVERY_IMAGE }}.bz2
           rm ${{ env.RECOVERY_IMAGE }}.bz2
 
       - name: Build docker image from recovery image
