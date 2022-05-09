@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  steamos:
+    image: zerosuxx/steamdeck-steamos-recovery:latest
+    volumes:
+      - ./scripts:/home/deck/scripts
+    working_dir: /app
