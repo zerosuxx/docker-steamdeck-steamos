@@ -11,6 +11,6 @@ USER deck
 
 WORKDIR /home/deck
 
-RUN echo -e 'deck\ndeck' | passwd
+RUN echo -e "deck\ndeck" | passwd
 
 RUN sudo steamos-readonly disable || exit 0
