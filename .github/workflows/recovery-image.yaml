@@ -7,7 +7,7 @@ env:
   DOCKER_BUILDKIT: 1
   COMPOSE_DOCKER_CLI_BUILD: 1
   BUILDKIT_PROGRESS: 'plain'
-  STEAMOS_VERSION: 3
+  STEAMOS_VERSION: 4
   DOCKER_IMAGE: 'zerosuxx/steamdeck-steamos-recovery'
   RECOVERY_IMAGE: 'steamdeck-recovery-1.img'
 
