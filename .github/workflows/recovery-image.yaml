@@ -9,7 +9,6 @@ env:
   BUILDKIT_PROGRESS: 'plain'
   STEAMOS_VERSION: 3
   DOCKER_IMAGE: 'zerosuxx/steamdeck-steamos-recovery'
-  RECOVERY_IMAGE: 'steamdeck-recovery-4.img'
 
 jobs:
   build-and-deploy:
@@ -18,18 +17,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set recovery image
+        run: export RECOVERY_IMAGE=$(curl -s https://steamdeck-images.steamos.cloud/recovery/ | grep -oP 'title="(.*.bz2)"' | tail -1 | cut -c8- | rev | cut -c6- | rev)
+
       - name: Download recovery image
-        run: wget https://steamdeck-images.steamos.cloud/recovery/${{ env.RECOVERY_IMAGE }}.bz2
+        run: wget https://steamdeck-images.steamos.cloud/recovery/$RECOVERY_IMAGE.bz2
 
       - name: Extract recovery image
-        run: bzip2 -d ${{ env.RECOVERY_IMAGE }}.bz2
+        run: bzip2 -d $RECOVERY_IMAGE.bz2
 
       - name: Build docker image from recovery image
         run: |
           sudo apt-get install -y libguestfs-tools
           sudo guestfish \
             --ro \
-            -a ${{ env.RECOVERY_IMAGE }} \
+            -a $RECOVERY_IMAGE \
             -m /dev/sda3:/ \
             -m /dev/sda4:/var \
             -m /dev/sda5:/home \
