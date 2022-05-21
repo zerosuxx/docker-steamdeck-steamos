@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Set recovery image
-        run: export RECOVERY_IMAGE=$(curl -s https://steamdeck-images.steamos.cloud/recovery/ | grep -oP 'title="(.*.bz2)"' | tail -1 | cut -c8- | rev | cut -c6- | rev)
+        run: echo "RECOVERY_IMAGE=$(curl -s https://steamdeck-images.steamos.cloud/recovery/ | grep -oP 'title=\"(.*.bz2)\"' | tail -1 | cut -c8- | rev | cut -c6- | rev)" >> $GITHUB_ENV
 
       - name: Download recovery image
         run: wget https://steamdeck-images.steamos.cloud/recovery/$RECOVERY_IMAGE.bz2
