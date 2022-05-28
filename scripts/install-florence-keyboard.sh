@@ -1,6 +1,9 @@
 #!/bin/bash
 
+rm -rf florence*
+
 sudo pacman -S --noconfirm \
+    perl-xml-parser \
     intltool \
     glibc \
     linux-api-headers \
