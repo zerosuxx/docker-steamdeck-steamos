@@ -3,6 +3,7 @@
 rm -rf florence*
 
 sudo pacman -S --noconfirm \
+    base-devel \
     perl-xml-parser \
     intltool \
     glibc \
