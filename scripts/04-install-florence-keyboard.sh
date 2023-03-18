@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 rm -rf florence*
 
 sudo pacman -S --noconfirm \
@@ -29,7 +31,7 @@ sudo pacman -S --noconfirm \
     gtk3 \
     gstreamer \
     libnotify
-    
+
 curl -L -o florence-0.6.3.tar.bz2 https://sourceforge.net/projects/florence/files/florence/0.6.3/florence-0.6.3.tar.bz2/download \
     && bzip2 -df florence-0.6.3.tar.bz2 \
     && tar -xvf florence-0.6.3.tar \
