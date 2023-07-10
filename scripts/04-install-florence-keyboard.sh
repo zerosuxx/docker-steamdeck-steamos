@@ -4,7 +4,7 @@ set -e
 
 rm -rf florence*
 
-sudo pacman -S --noconfirm \
+sudo pacman -S --noconfirm --overwrite '*' \
     base-devel \
     perl-xml-parser \
     intltool \

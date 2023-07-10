@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pacman -S --noconfirm docker
+sudo pacman -S --noconfirm --overwrite '*' docker
 sudo systemctl start docker
 sudo systemctl enable docker
 sudo mkdir -p /usr/local/lib/docker/cli-plugins
